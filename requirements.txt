@@ -8,6 +8,7 @@ fastapi
 streamlit
 requests-toolbelt
 python-multipart
+gunicorn
 
 
 
