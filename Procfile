@@ -1,1 +1,1 @@
-web: app:FastMain.py
+web: python FastAPI/FastMain.py
