@@ -9,6 +9,8 @@ streamlit
 requests-toolbelt
 python-multipart
 gunicorn
+uvloop
+httptools
 
 
 
