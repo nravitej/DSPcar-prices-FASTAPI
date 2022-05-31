@@ -1,0 +1,14 @@
+typing
+numpy
+sklearn
+pandas
+pydantic
+uvicorn
+fastapi
+streamlit
+requests-toolbelt
+
+
+
+
+
