@@ -7,6 +7,7 @@ uvicorn
 fastapi
 streamlit
 requests-toolbelt
+python-multipart
 
 
 
