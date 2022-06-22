@@ -13,7 +13,6 @@ uvloop
 httptools
 sqlalchemy
 databases
-os
 
 
 
