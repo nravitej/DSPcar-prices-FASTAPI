@@ -11,6 +11,10 @@ python-multipart
 gunicorn
 uvloop
 httptools
+sqlalchemy
+urllib
+databases
+os
 
 
 
