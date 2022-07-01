@@ -18,15 +18,7 @@ x = datetime.datetime.now()
 print(x)
 
 app = FastAPI()
-# host_server = os.environ.get('host_server', 'ec2-3-230-122-20.compute-1.amazonaws.com')
-#
-# db_server_port = urllib.parse.quote_plus(str(os.environ.get('db_server_port', '5432')))
-# database_name = os.environ.get('database_name', 'd59neqiqc668vc')
-# db_username = urllib.parse.quote_plus(str(os.environ.get('db_username', 'otbgdaygwxniqq')))
-# db_password = urllib.parse.quote_plus(str(os.environ.get('db_password', '741b2f1e4cb951ab402009d479b9073f765ee5234f0f36537ee592f9ebaec8e0')))
-# ssl_mode = urllib.parse.quote_plus(str(os.environ.get('ssl_mode', 'prefer')))
-# DATABASE_URL = 'postgresql://{}:{}@{}:{}/{}?sslmode={}'.format(db_username, db_password, host_server, db_server_port,
-#                                                                database_name, ssl_mode)
+
 
 host_server = os.environ.get('host_server', 'test-postgre-1.cxryoojexvkv.eu-west-3.rds.amazonaws.com')
 
@@ -97,26 +89,6 @@ class PdVal(BaseModel):
 class pydanticfiletype(BaseModel):
     file: UploadFile = File(...)
 
-
-def save_predictions(records):
-    print(records)
-    query = records.to_sql("CarPrices", con=engine, if_exists='append')
-    # query = CarPrices.insert().values(records)
-    # print(query)
-    #last_record_id = query
-    return 1
-
-
-@app.on_event("startup")
-async def startup():
-    await database.connect()
-
-
-@app.on_event("shutdown")
-async def shutdown():
-    await database.disconnect()
-
-
 @app.get("/")
 async def root():
     return {"message": "Hello World"}
@@ -149,8 +121,12 @@ async def get_probability(file: UploadFile = File(...)):
     print(dat.info())
     print(len(make_predictions(dat)))
     dat["Prediction"] = make_predictions(dat)
+
     dat["Time"]=x
     save_predictions(dat)
+
+
+ 
 
     f = dat.iloc[0:10, :2]
     print(f)

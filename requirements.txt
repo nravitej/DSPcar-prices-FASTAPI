@@ -12,11 +12,11 @@ gunicorn
 uvloop
 httptools
 sqlalchemy
-urllib
 databases
 os
 asyncpg
 psycopg2-binary
+
 
 
 
