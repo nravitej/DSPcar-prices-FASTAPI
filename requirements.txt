@@ -13,8 +13,10 @@ uvloop
 httptools
 sqlalchemy
 databases
+os
 asyncpg
-psycopg2
+psycopg2-binary
+
 
 
 
